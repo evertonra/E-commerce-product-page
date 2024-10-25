@@ -23,6 +23,7 @@
       rel="stylesheet" />
 
     <script src="./js/main.js"></script>
+    <script src="./js/cart.js"></script>
     <script src="./js/imageController.js"></script>
   </head>
   <body class="container">
@@ -50,47 +51,97 @@
       </div>
     </header>
 
-    <div class="flex gap-16 py-12 items-start justify-center">
-      <div class="flex flex-col gap-8 w-[400px]">
+    <div class="flex gap-16 py-12 items-center justify-center w-full mx-auto">
+      <!-- Images -->
+      <div class="flex flex-col gap-7 w-[40%]">
         <img
-          class="rounded-2xl w-full"
+          onclick="openImageModal(0)"
+          class="rounded-2xl w-full cursor-pointer"
           src="./images/image-product-1.jpg"
-          alt="" />
+          alt="Product Image" />
+
+        <!-- Modal -->
+        <div id="imageModal" class="modal-overlay" style="display: none">
+          <div class="modal-content relative">
+            <button onclick="prevImage()" class="nav-button prev"><</button>
+            <img
+              id="modalImage"
+              class="rounded-2xl w-full z-0 relative"
+              src=""
+              alt="Modal Image" />
+            <button onclick="nextImage()" class="nav-button next">></button>
+            <button onclick="closeModal()" class="close-button">X</button>
+          </div>
+        </div>
+
         <div class="flex items-center justify-start gap-7">
-          <img
-            class="rounded-2xl w-[80px] h-[80px]"
-            src="./images/image-product-1-thumbnail.jpg"
-            alt="" />
-          <img
-            class="rounded-2xl w-[80px] h-[80px]"
-            src="./images/image-product-2-thumbnail.jpg"
-            alt="" />
-          <img
-            class="rounded-2xl w-[80px] h-[80px]"
-            src="./images/image-product-3-thumbnail.jpg"
-            alt="" />
-          <img
-            class="rounded-2xl w-[80px] h-[80px]"
-            src="./images/image-product-4-thumbnail.jpg"
-            alt="" />
+          <div class="image_border">
+            <img
+              class="rounded-xl w-[80px] h-[80px] image_selected"
+              src="./images/image-product-1-thumbnail.jpg"
+              alt="" />
+          </div>
+          <div>
+            <img
+              class="rounded-xl w-[80px] h-[80px]"
+              src="./images/image-product-2-thumbnail.jpg"
+              alt="" />
+          </div>
+          <div>
+            <img
+              class="rounded-xl w-[80px] h-[80px]"
+              src="./images/image-product-3-thumbnail.jpg"
+              alt="" />
+          </div>
+          <div>
+            <img
+              class="rounded-xl w-[80px] h-[80px]"
+              src="./images/image-product-4-thumbnail.jpg"
+              alt="" />
+          </div>
         </div>
       </div>
-      <div class="w-[400px]">
-        <h4>Sneaker Company</h4>
-        <h1>Fall Limited Edition Sneakers</h1>
-        <p>
+      <div class="w-[40%] flex gap-4 flex-col items-start justify-center">
+        <h4 class="n_dark_gray uppercase text-[16px] font-semibold">
+          Sneaker Company
+        </h4>
+        <h1 class="n_dark_blue text-[42px] font-bold leading-[52px]">
+          Fall Limited Edition Sneakers
+        </h1>
+        <p class="n_dark_gray text-[16px] font-medium">
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they’ll withstand everything
           the weather can offer.
         </p>
-        <div>
-          <h2>$125.00</h2>
-          <h3>50%</h3>
+        <div class="flex items-center gap-8">
+          <h2 class="n_dark_blue text-[32px] font-bold leading-[42px]">
+            $125.00
+          </h2>
+          <h3 class="bg-black p-1 rounded-md n_white">50%</h3>
         </div>
-        <h4>$250.00</h4>
-        <div>
-          <p>Qtde</p>
-          <button>Add to cart</button>
+        <h4 class="n_dark_gray text-[16px] font-bold line-through">$250.00</h4>
+        <div class="flex items-center justify-start gap-4">
+          <div class="flex items-center">
+            <button
+              onclick="subQuantity()"
+              class="flex h-[42px] w-[44px] p_orange items-center justify-center rounded-l-md bg-[#f7f8fd]">
+              -
+            </button>
+            <p
+              id="quantity"
+              class="h-[40px] w-[44px] text-[16px] font-bold bg-[#f7f8fd] p-4 flex items-center justify-center">
+              0
+            </p>
+            <button
+              onclick="addQuantity()"
+              class="flex h-[42px] w-[44px] p_orange items-center justify-center rounded-r-md bg-[#f7f8fd]">
+              +
+            </button>
+          </div>
+          <button
+            class="rounded-md flex items-center gap-2 py-2 px-10 bg-[#ff7d1a] font-bold text-[16px]">
+            <img src="./images/icon-cart.svg" alt="" /> Add to cart
+          </button>
         </div>
       </div>
     </div>
