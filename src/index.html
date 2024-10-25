@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <link href="./style.css" rel="stylesheet" />
+    <link href="./output.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+      rel="stylesheet" />
+
+    <script src="./js/main.js"></script>
+    <script src="./js/imageController.js"></script>
+  </head>
+  <body class="container">
+    <header
+      class="flex w-full py-10 items-center justify-between border-b border-[hsl(220, 14%, 75%)]">
+      <div class="flex w-full gap-16 items-start justify-start">
+        <img src="./images/logo.svg" alt="logo" />
+        <nav>
+          <ul class="flex gap-8 items-center">
+            <li class="n_dark_gray header_text"><a href="#">Collections</a></li>
+            <li class="n_dark_gray header_text"><a href="#">Men</a></li>
+            <li class="n_dark_gray header_text"><a href="#">Women</a></li>
+            <li class="n_dark_gray header_text"><a href="#">About</a></li>
+            <li class="n_dark_gray header_text"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="flex gap-8 items-center">
+        <button onclick="teste()">
+          <img src="./images/icon-cart.svg" alt="" />
+        </button>
+        <button>
+          <img class="w-12 h-12" src="./images/image-avatar.png" alt="" />
+        </button>
+      </div>
+    </header>
+
+    <div class="flex gap-16 py-12 items-start justify-center">
+      <div class="flex flex-col gap-8 w-[400px]">
+        <img
+          class="rounded-2xl w-full"
+          src="./images/image-product-1.jpg"
+          alt="" />
+        <div class="flex items-center justify-start gap-7">
+          <img
+            class="rounded-2xl w-[80px] h-[80px]"
+            src="./images/image-product-1-thumbnail.jpg"
+            alt="" />
+          <img
+            class="rounded-2xl w-[80px] h-[80px]"
+            src="./images/image-product-2-thumbnail.jpg"
+            alt="" />
+          <img
+            class="rounded-2xl w-[80px] h-[80px]"
+            src="./images/image-product-3-thumbnail.jpg"
+            alt="" />
+          <img
+            class="rounded-2xl w-[80px] h-[80px]"
+            src="./images/image-product-4-thumbnail.jpg"
+            alt="" />
+        </div>
+      </div>
+      <div class="w-[400px]">
+        <h4>Sneaker Company</h4>
+        <h1>Fall Limited Edition Sneakers</h1>
+        <p>
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div>
+          <h2>$125.00</h2>
+          <h3>50%</h3>
+        </div>
+        <h4>$250.00</h4>
+        <div>
+          <p>Qtde</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a target="blank" href="https://github.com/evertonra">Éverton R. Adams</a
+      >.
+    </div>
+  </body>
+</html>

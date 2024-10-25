@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.p_orange {
+  color: hsl(26, 100%, 55%);
+}
+
+.p_page_orange {
+  color: hsl(25, 100%, 94%);
+}
+
+.n_dark_blue {
+  color: hsl(220, 13%, 13%);
+}
+
+.n_dark_gray {
+  color: hsl(219, 9%, 45%);
+}
+
+.n_grayish_blue {
+  color: hsl(220, 14%, 75%);
+}
+
+.n_light_grayish {
+  color: hsl(223, 64%, 98%);
+}
+
+.n_white {
+  color: hsl(0, 0%, 100%);
+}
+
+.n_black {
+  color: hsl(0, 75%, 0%);
+}
+
+/* Header */
+
+.header_text {
+  font-size: 16px;
+}
