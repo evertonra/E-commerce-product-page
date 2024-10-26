@@ -42,12 +42,28 @@
         </nav>
       </div>
       <div class="flex gap-8 items-center">
-        <button onclick="teste()">
+        <button onclick="openCartModal()">
           <img src="./images/icon-cart.svg" alt="" />
         </button>
+
         <button>
           <img class="w-12 h-12" src="./images/image-avatar.png" alt="" />
         </button>
+
+        <div id="cartModal" class="relative" style="display: none">
+          <div class="w-[300px] bg-white absolute top-4 right-0">
+            <div class="border-b border-slate-300">
+              <h2 class="n_dark_blue text-[16px] font-bold pb-4">Cart</h2>
+            </div>
+            <div class="flex flex-col items-center justify-center p-2">
+              <div>
+                <h4 class="n_dark_blue text-[16px] font-bold">
+                  Your card is empty.
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -56,9 +72,40 @@
       <div class="flex flex-col gap-7 w-[40%]">
         <img
           onclick="openImageModal(0)"
-          class="rounded-2xl w-full cursor-pointer"
+          class="rounded-2xl w-full cursor-pointer main-product-image"
           src="./images/image-product-1.jpg"
           alt="Product Image" />
+
+        <div class="flex items-center justify-start gap-7">
+          <div class="image_border">
+            <img
+              onclick="changeImage(0)"
+              class="rounded-xl w-[80px] h-[80px] image_selected hover:bg-[#ffffff] hover:opacity-50"
+              src="./images/image-product-1-thumbnail.jpg"
+              alt="" />
+          </div>
+          <div>
+            <img
+              onclick="changeImage(1)"
+              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+              src="./images/image-product-2-thumbnail.jpg"
+              alt="" />
+          </div>
+          <div>
+            <img
+              onclick="changeImage(2)"
+              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+              src="./images/image-product-3-thumbnail.jpg"
+              alt="" />
+          </div>
+          <div>
+            <img
+              onclick="changeImage(3)"
+              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+              src="./images/image-product-4-thumbnail.jpg"
+              alt="" />
+          </div>
+        </div>
 
         <!-- Modal -->
         <div id="imageModal" class="modal-overlay" style="display: none">
@@ -71,41 +118,48 @@
               alt="Modal Image" />
             <button onclick="nextImage()" class="nav-button next">></button>
             <button onclick="closeModal()" class="close-button">X</button>
-          </div>
-        </div>
 
-        <div class="flex items-center justify-start gap-7">
-          <div class="image_border">
-            <img
-              class="rounded-xl w-[80px] h-[80px] image_selected"
-              src="./images/image-product-1-thumbnail.jpg"
-              alt="" />
-          </div>
-          <div>
-            <img
-              class="rounded-xl w-[80px] h-[80px]"
-              src="./images/image-product-2-thumbnail.jpg"
-              alt="" />
-          </div>
-          <div>
-            <img
-              class="rounded-xl w-[80px] h-[80px]"
-              src="./images/image-product-3-thumbnail.jpg"
-              alt="" />
-          </div>
-          <div>
-            <img
-              class="rounded-xl w-[80px] h-[80px]"
-              src="./images/image-product-4-thumbnail.jpg"
-              alt="" />
+            <!-- Thumbnails dentro do modal -->
+            <div class="flex items-center justify-start gap-7 mt-4">
+              <div class="image_border bg-white rounded-[13px]">
+                <img
+                  class="rounded-xl w-[80px] h-[80px] image_selected hover:bg-[#ffffff] hover:opacity-50"
+                  onclick="openImageModal(0)"
+                  src="./images/image-product-1-thumbnail.jpg"
+                  alt="" />
+              </div>
+              <div class="bg-white rounded-[13px]">
+                <img
+                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+                  onclick="openImageModal(1)"
+                  src="./images/image-product-2-thumbnail.jpg"
+                  alt="" />
+              </div>
+              <div class="bg-white rounded-[13px]">
+                <img
+                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+                  onclick="openImageModal(2)"
+                  src="./images/image-product-3-thumbnail.jpg"
+                  alt="" />
+              </div>
+              <div class="bg-white rounded-[13px]">
+                <img
+                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+                  onclick="openImageModal(3)"
+                  src="./images/image-product-4-thumbnail.jpg"
+                  alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="w-[40%] flex gap-4 flex-col items-start justify-center">
+      <div class="w-[40%] flex gap-8 flex-col items-start justify-center">
         <h4 class="n_dark_gray uppercase text-[16px] font-semibold">
           Sneaker Company
         </h4>
-        <h1 class="n_dark_blue text-[42px] font-bold leading-[52px]">
+        <h1
+          id="product"
+          class="n_dark_blue text-[42px] font-bold leading-[52px]">
           Fall Limited Edition Sneakers
         </h1>
         <p class="n_dark_gray text-[16px] font-medium">
@@ -114,9 +168,14 @@
           the weather can offer.
         </p>
         <div class="flex items-center gap-8">
-          <h2 class="n_dark_blue text-[32px] font-bold leading-[42px]">
-            $125.00
-          </h2>
+          <div class="flex items-center">
+            <h2 class="n_dark_blue text-[32px] font-bold leading-[42px]">$</h2>
+            <h2
+              id="price"
+              class="n_dark_blue text-[32px] font-bold leading-[42px]">
+              125.00
+            </h2>
+          </div>
           <h3 class="bg-black p-1 rounded-md n_white">50%</h3>
         </div>
         <h4 class="n_dark_gray text-[16px] font-bold line-through">$250.00</h4>
@@ -139,6 +198,7 @@
             </button>
           </div>
           <button
+            onclick="addCart()"
             class="rounded-md flex items-center gap-2 py-2 px-10 bg-[#ff7d1a] font-bold text-[16px]">
             <img src="./images/icon-cart.svg" alt="" /> Add to cart
           </button>
