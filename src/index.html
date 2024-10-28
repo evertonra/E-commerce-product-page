@@ -49,18 +49,17 @@
         <button>
           <img class="w-12 h-12" src="./images/image-avatar.png" alt="" />
         </button>
-
-        <div id="cartModal" class="relative" style="display: none">
-          <div class="w-[300px] bg-white absolute top-4 right-0">
-            <div class="border-b border-slate-300">
-              <h2 class="n_dark_blue text-[16px] font-bold pb-4">Cart</h2>
-            </div>
-            <div class="flex flex-col items-center justify-center p-2">
-              <div>
-                <h4 class="n_dark_blue text-[16px] font-bold">
-                  Your card is empty.
-                </h4>
-              </div>
+        <div
+          id="cartModal"
+          class="absolute top-20 right-6 rounded-md w-[300px] bg-white mt-4 hidden z-10 shadow-md shadow-slate-300">
+          <div class="border-b border-slate-300 p-4">
+            <h2 class="n_dark_blue text-[16px] font-bold">Cart</h2>
+          </div>
+          <div class="flex flex-col items-center justify-center p-4">
+            <div>
+              <h4 class="n_dark_blue text-[16px] font-bold">
+                Your cart is empty.
+              </h4>
             </div>
           </div>
         </div>
@@ -72,6 +71,7 @@
       <div class="flex flex-col gap-7 w-[40%]">
         <img
           onclick="openImageModal(0)"
+          id="img"
           class="rounded-2xl w-full cursor-pointer main-product-image"
           src="./images/image-product-1.jpg"
           alt="Product Image" />
