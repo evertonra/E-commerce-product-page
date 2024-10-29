@@ -28,28 +28,19 @@ function addCart() {
 
 function removeCart() {
   localStorage.removeItem("cartList");
+  openCartModal();
+  openCartModal();
 }
 
 function formatPrice(price) {
   return price.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
-// function openCartModal() {
-//   const modal = document.getElementById("cartModal");
-
-//   // Alterna a visibilidade do modal adicionando ou removendo a classe 'hidden'
-//   if (modal.classList.contains("hidden")) {
-//     modal.classList.remove("hidden");
-//   } else {
-//     modal.classList.add("hidden");
-//   }
-// }
-
 function openCartModal() {
   const modal = document.getElementById("cartModal");
   const cartContent = JSON.parse(localStorage.getItem("cartList"));
   const modalBody = modal.querySelector(
-    ".flex.flex-col.items-center.justify-center.p-4"
+    ".flex.flex-col.items-center.justify-center.p-4.gap-4"
   );
 
   modalBody.innerHTML = "";
@@ -57,25 +48,32 @@ function openCartModal() {
   if (cartContent && cartContent.quantity > 0) {
     const itemHtml = `
      
-      <div class="flex  w-full">
-        <div class="w-[50px]" >
-          <img  src="${cartContent.img}" alt="Product" />
+      <div class="flex items-center justify-between gap-2 pb-2 w-full">
+        <div class="w-12 h-12" >
+          <img class="rounded-md" src="${cartContent.img}" alt="Product" />
         </div>
         <div class="flex flex-col items-start justify-between w-[75%]"> 
           <span class="n_dark_blue">${cartContent.product}</span>
           <div>
           <span class="text-gray-600">${formatPrice(cartContent.price)}</span>
-          <span class="text-gray-600">x}</span>
+          <span class="text-gray-600">x</span>
           <span class="text-gray-600">Quantity: ${cartContent.quantity}</span>
           <span class="text-black font-bold">${formatPrice(
             cartContent.total
           )}</span>
           </div>
         </div>
+
+        <div>
+          <img src="/images/icon-delete.svg" alt="Close" onclick="removeCart()" />
+        </div>
+
       </div>
-      <button class="rounded-md text-center flex items-center justify-center gap-2 py-2 px-10 w-full bg-[#ff7d1a] font-bold text-[16px]"> 
+     
+      <button class="rounded-md  text-center flex items-center justify-center gap-2 py-2 px-10 w-full bg-[#ff7d1a] font-bold text-[16px]">
         Checkout
       </button>
+      
     `;
     modalBody.innerHTML = itemHtml;
   } else {
