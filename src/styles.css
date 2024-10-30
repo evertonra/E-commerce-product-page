@@ -151,3 +151,28 @@
 .close-button:hover {
   color: hsl(26, 100%, 55%);
 }
+
+.header_text {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Estilos responsivos para o cabeçalho */
+@media (max-width: 768px) {
+  .container {
+    width: auto;
+    margin: 0 auto;
+  }
+  header .flex {
+    justify-content: space-between;
+  }
+
+  nav {
+    display: none; /* Esconde o menu na versão mobile */
+  }
+
+  #cartModal,
+  .md\\:flex {
+    display: none; /* Esconde o menu do carrinho no mobile */
+  }
+}

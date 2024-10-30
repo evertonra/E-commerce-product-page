@@ -79,7 +79,7 @@ function openCartModal() {
   } else {
     modalBody.innerHTML = `
       <div>
-        <h4 class="n_dark_blue text-[16px] font-bold">Your cart is empty.</h4>
+        <h4 class="py-12 n_dark_gray text-[16px] font-bold">Your cart is empty.</h4>
       </div>
     `;
   }

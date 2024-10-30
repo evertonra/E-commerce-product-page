@@ -28,10 +28,15 @@
   </head>
   <body class="container">
     <header
-      class="flex w-full py-10 items-center justify-between border-b border-[hsl(220, 14%, 75%)]">
+      class="flex w-full py-10 px-4 md:px-0 items-center md:justify-between border-b border-[hsl(220, 14%, 75%)]">
       <div class="flex w-full gap-16 items-start justify-start">
-        <img src="./images/logo.svg" alt="logo" />
-        <nav>
+        <div class="flex items-center justify-center">
+          <button onclick="toggleMenu()" class="block md:hidden">
+            <img class="mr-4" src="./images/icon-menu.svg" alt="Menu Icon" />
+          </button>
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+        <nav class="hidden md:block">
           <ul class="flex gap-8 items-center">
             <li class="n_dark_gray header_text"><a href="#">Collections</a></li>
             <li class="n_dark_gray header_text"><a href="#">Men</a></li>
@@ -56,7 +61,7 @@
             <h2 class="n_dark_blue text-[16px] font-bold">Cart</h2>
           </div>
           <div class="flex flex-col items-center justify-center p-4 gap-4">
-            <div>
+            <div class="my-12">
               <h4 class="n_dark_blue text-[16px] font-bold">
                 Your cart is empty.
               </h4>
@@ -66,9 +71,33 @@
       </div>
     </header>
 
-    <div class="flex gap-16 py-12 items-center justify-center w-full mx-auto">
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-20"
+      onclick="toggleMenu()"></div>
+
+    <div
+      id="mobileMenu"
+      class="fixed left-0 top-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform z-30">
+      <div class="p-4 flex items-center justify-between">
+        <button onclick="toggleMenu()">
+          <img src="./images/icon-close.svg" alt="Close" />
+        </button>
+      </div>
+
+      <ul class="pl-8 mt-4 flex flex-col gap-4 items-start">
+        <li class="n_dark_gray header_text"><a href="#">Collections</a></li>
+        <li class="n_dark_gray header_text"><a href="#">Men</a></li>
+        <li class="n_dark_gray header_text"><a href="#">Women</a></li>
+        <li class="n_dark_gray header_text"><a href="#">About</a></li>
+        <li class="n_dark_gray header_text"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div
+      class="flex gap-16 flex-col md:flex-row py-12 items-center justify-center w-full mx-auto">
       <!-- Images -->
-      <div class="flex flex-col gap-7 w-[40%]">
+      <div class="flex flex-col gap-7 w-full lg:w-[40%]">
         <img
           onclick="openImageModal(0)"
           id="img"
@@ -80,28 +109,28 @@
           <div class="image_border">
             <img
               onclick="changeImage(0)"
-              class="rounded-xl w-[80px] h-[80px] image_selected hover:bg-[#ffffff] hover:opacity-50"
+              class="rounded-xl w-[80px] h-[80px] image_selected hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
               src="./images/image-product-1-thumbnail.jpg"
               alt="" />
           </div>
           <div>
             <img
               onclick="changeImage(1)"
-              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
               src="./images/image-product-2-thumbnail.jpg"
               alt="" />
           </div>
           <div>
             <img
               onclick="changeImage(2)"
-              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
               src="./images/image-product-3-thumbnail.jpg"
               alt="" />
           </div>
           <div>
             <img
               onclick="changeImage(3)"
-              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+              class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
               src="./images/image-product-4-thumbnail.jpg"
               alt="" />
           </div>
@@ -123,28 +152,28 @@
             <div class="flex items-center justify-start gap-7 mt-4">
               <div class="image_border bg-white rounded-[13px]">
                 <img
-                  class="rounded-xl w-[80px] h-[80px] image_selected hover:bg-[#ffffff] hover:opacity-50"
+                  class="rounded-xl w-[80px] h-[80px] image_selected hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
                   onclick="openImageModal(0)"
                   src="./images/image-product-1-thumbnail.jpg"
                   alt="" />
               </div>
               <div class="bg-white rounded-[13px]">
                 <img
-                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
                   onclick="openImageModal(1)"
                   src="./images/image-product-2-thumbnail.jpg"
                   alt="" />
               </div>
               <div class="bg-white rounded-[13px]">
                 <img
-                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
                   onclick="openImageModal(2)"
                   src="./images/image-product-3-thumbnail.jpg"
                   alt="" />
               </div>
               <div class="bg-white rounded-[13px]">
                 <img
-                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50"
+                  class="rounded-xl w-[80px] h-[80px] hover:bg-[#ffffff] hover:opacity-50 cursor-pointer"
                   onclick="openImageModal(3)"
                   src="./images/image-product-4-thumbnail.jpg"
                   alt="" />
@@ -153,7 +182,8 @@
           </div>
         </div>
       </div>
-      <div class="w-[40%] flex gap-8 flex-col items-start justify-center">
+      <div
+        class="w-full lg:w-[40%] flex gap-8 flex-col items-start justify-center">
         <h4 class="n_dark_gray uppercase text-[16px] font-semibold">
           Sneaker Company
         </h4>
