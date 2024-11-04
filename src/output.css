@@ -867,16 +867,12 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.pl-8 {
-  padding-left: 2rem;
-}
-
-.pl-4 {
-  padding-left: 1rem;
-}
-
 .pl-2 {
   padding-left: 0.5rem;
+}
+
+.pl-8 {
+  padding-left: 2rem;
 }
 
 .text-center {
@@ -1182,12 +1178,16 @@ video {
     display: none;
   }
 
+  .md\:w-\[44px\] {
+    width: 44px;
+  }
+
   .md\:w-auto {
     width: auto;
   }
 
-  .md\:w-\[44px\] {
-    width: 44px;
+  .md\:w-\[300px\] {
+    width: 300px;
   }
 
   .md\:flex-row {
