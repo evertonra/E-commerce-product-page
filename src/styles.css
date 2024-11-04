@@ -124,6 +124,29 @@
   color: hsl(26, 100%, 55%);
 }
 
+.nav-button2 {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1003; /* Garantir que os botões fiquem acima de outros elementos */
+  border: 1px solid hsl(26, 100%, 55%);
+}
+
+.nav-button2:hover {
+  color: hsl(26, 100%, 55%);
+}
+
 .prev {
   left: 0px; /* Ajustar a posição para fora da imagem */
 }
